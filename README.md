@@ -30,15 +30,18 @@ A React-based product management application that allows users to view, search, 
 
 ## Project Structure
 
+<pre>
 src/
 ├── components/
-│ ├── ProductList.jsx
-│ ├── ProductGrid.jsx
-│ └── ProductFormModal.jsx
+│   ├── ProductList.jsx
+│   ├── ProductGrid.jsx
+│   └── ProductFormModal.jsx
 ├── data/
-│ └── products.js
+│   └── products.js
 ├── App.jsx
 └── main.jsx
+</pre>
+
 
 ---
 
