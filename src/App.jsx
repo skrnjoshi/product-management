@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { PRODUCTS_DATA } from "./data/products";
-import ProductList from "./components/ProductList"
+import ProductList from "./components/ProductList.jsx";
+import ProductGrid from "./components/ProductGrid.jsx";
 
 function App() {
   const [products] = useState(PRODUCTS_DATA);
+  const [view, setView] = useState("list");
 
   return (
     <div className="min-h-screen bg-gray-50 p-6">
@@ -12,7 +14,35 @@ function App() {
           Product Management
         </h1>
 
-        <ProductList products={products} />
+        <div className="flex gap-2 mb-4">
+          <button
+            onClick={() => setView("list")}
+            className={`px-4 py-2 rounded ${
+              view === "list"
+                ? "bg-blue-500 text-white"
+                : "bg-gray-200"
+            }`}
+          >
+            List View
+          </button>
+
+          <button
+            onClick={() => setView("grid")}
+            className={`px-4 py-2 rounded ${
+              view === "grid"
+                ? "bg-blue-500 text-white"
+                : "bg-gray-200"
+            }`}
+          >
+            Grid View
+          </button>
+        </div>
+
+        {view === "list" ? (
+          <ProductList products={products} />
+        ) : (
+          <ProductGrid products={products} />
+        )}
 
         <p className="mt-4 text-sm text-gray-600">
           Total Products: {products.length}
